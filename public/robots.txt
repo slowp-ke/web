@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://slowp.ke/sitemap-index.xml

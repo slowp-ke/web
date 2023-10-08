@@ -1,0 +1,5 @@
+.astro/
+.DS_Store
+dist/
+node_modules/
+pnpm-debug.log*

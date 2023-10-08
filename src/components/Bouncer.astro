@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+import gifSlowpoke from "@/assets/slowpoke.gif";
+interface Props {
+	number?: number;
+}
+const { number = 4 } = Astro.props;
+
+const CLASS = "c_slowpoke";
+---
+
+<div class:list={[CLASS, "fixed h-full w-full pointer-events-none"]}>
+	{
+		Array.from({ length: number }, () => (
+			<div class="absolute">
+				<a
+					aria-label="slowpoke"
+					class="absolute pointer-events-auto"
+					href="https://www.serebii.net/pokedex/079.shtml"
+					hreflang="en"
+					referrerpolicy="no-referrer"
+					rel="noreferrer external"
+					target="_blank"
+				>
+					<Image alt="slowpoke" src={gifSlowpoke} width="24" height="23" />
+				</a>
+			</div>
+		))
+	}
+</div>
+
+<script define:vars={{ CLASS }}>
+const container = document.getElementsByClassName(CLASS)[0];
+const items = [...container.children];
+const baseOptions = {
+	easing: "linear",
+	iterations: Infinity,
+	direction: "alternate"
+};
+let x = 0;
+
+items.forEach((itemContainer) => {
+	const randomDurationX = Math.random() * 7000;
+	const randomDurationY = Math.random() * 7000;
+	itemContainer.animate(
+		{ transform: "translateX(calc(100vw - 24px))" },
+		{
+			...baseOptions,
+			duration: randomDurationX
+		}
+	);
+
+	itemContainer.firstElementChild.animate(
+		{ transform: "translateY(calc(100vh - 24px))" },
+		{
+			...baseOptions,
+			duration: randomDurationY
+		}
+	);
+});
+</script>

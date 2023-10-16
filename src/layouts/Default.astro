@@ -12,13 +12,88 @@ const APP_COLOR = "#ffc5b2";
 
 <html lang="en">
 	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<style is:global>
+			:root {
+				--APP_COLOR: #ffc5b2;
+				--color-app: var(--APP_COLOR);
+
+				--text-brightness-offset: #000;
+				--bg-brightness-offset: #fff;
+
+				--bg: color-mix(
+					in srgb,
+					var(--color-app),
+					var(--bg-brightness-offset) 10%
+				);
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--text-brightness-offset: #fff;
+					--bg-brightness-offset: #000;
+
+					--bg: color-mix(
+						in srgb,
+						var(--color-app),
+						var(--bg-brightness-offset) 80%
+					);
+				}
+			}
+
+			html,
+			body {
+				background: var(--bg);
+				font-family:
+					system-ui,
+					-apple-system,
+					BlinkMacSystemFont,
+					"Segoe UI",
+					Roboto,
+					Oxygen,
+					Ubuntu,
+					Cantarell,
+					"Open Sans",
+					"Helvetica Neue",
+					sans-serif;
+				color: color-mix(
+					in srgb,
+					var(--color-app),
+					var(--text-brightness-offset) 50%
+				);
+				font-size: 14px;
+				height: 100%;
+				margin: 0;
+				overflow: hidden;
+			}
+
+			a {
+				color: color-mix(
+					in srgb,
+					var(--color-app),
+					var(--text-brightness-offset) 33.3%
+				);
+				text-decoration: none;
+				font-weight: bolder;
+			}
+		</style>
+
+		<link
+			rel="preload"
+			href={gifSlowpoke.src}
+			as="image"
+			type="image/gif"
+			crossorigin="anonymous"
+		/>
+
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="icon" href="/favicon.ico" sizes="any" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="manifest" href="/manifest.webmanifest" />
 		<link rel="mask-icon" href="/mask.svg" color={APP_COLOR} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-		<meta charset="utf-8" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta
 			name="apple-mobile-web-app-status-bar-style"
@@ -31,78 +106,14 @@ const APP_COLOR = "#ffc5b2";
 		<meta name="keywords" content="slowpoke, pokemon, pokémon" />
 		<meta name="msapplication-TileColor" content={APP_COLOR} />
 		<meta name="theme-color" content={APP_COLOR} />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta property="og:image" content="https://slowp.ke/apple-touch-icon.png" />
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:title" content={title} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://slowp.ke" />
-		<title>{title}</title>
-		<link rel="preload" href={gifSlowpoke.src} as="image" type="image/gif" />
 	</head>
 
 	<body>
 		<slot />
 	</body>
 </html>
-
-<style is:global>
-	:root {
-		--APP_COLOR: #ffc5b2;
-		--color-app: var(--APP_COLOR);
-
-		--text-brightness-offset: #000;
-		--bg-brightness-offset: #fff;
-
-		--bg: color-mix(in srgb, var(--color-app), var(--bg-brightness-offset) 10%);
-	}
-
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--text-brightness-offset: #fff;
-			--bg-brightness-offset: #000;
-
-			--bg: color-mix(
-				in srgb,
-				var(--color-app),
-				var(--bg-brightness-offset) 80%
-			);
-		}
-	}
-
-	html,
-	body {
-		background: var(--bg);
-		font-family:
-			system-ui,
-			-apple-system,
-			BlinkMacSystemFont,
-			"Segoe UI",
-			Roboto,
-			Oxygen,
-			Ubuntu,
-			Cantarell,
-			"Open Sans",
-			"Helvetica Neue",
-			sans-serif;
-		color: color-mix(
-			in srgb,
-			var(--color-app),
-			var(--text-brightness-offset) 50%
-		);
-		font-size: 14px;
-		height: 100%;
-		margin: 0;
-		overflow: hidden;
-	}
-
-	a {
-		color: color-mix(
-			in srgb,
-			var(--color-app),
-			var(--text-brightness-offset) 33.3%
-		);
-		text-decoration: none;
-		font-weight: bolder;
-	}
-</style>

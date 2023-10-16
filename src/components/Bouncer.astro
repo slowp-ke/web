@@ -29,33 +29,33 @@ const CLASS = "c_slowpoke";
 	}
 </div>
 
-<script define:vars={{ CLASS }}>
-const container = document.getElementsByClassName(CLASS)[0];
-const items = [...container.children];
-const baseOptions = {
-	easing: "linear",
-	iterations: Infinity,
-	direction: "alternate"
-};
-let x = 0;
+<script define:vars={{ CLASS }} lang="ts">
+	const container = document.getElementsByClassName(CLASS)[0];
+	const items = [...container.children];
+	const baseOptions = {
+		easing: "linear",
+		iterations: Infinity,
+		direction: "alternate"
+	};
+	let x = 0;
 
-items.forEach((itemContainer) => {
-	const randomDurationX = Math.random() * 7000;
-	const randomDurationY = Math.random() * 7000;
-	itemContainer.animate(
-		{ transform: "translateX(calc(100vw - 24px))" },
-		{
-			...baseOptions,
-			duration: randomDurationX
-		}
-	);
+	items.forEach((itemContainer) => {
+		const randomDurationX = Math.random() * 7000;
+		const randomDurationY = Math.random() * 7000;
+		itemContainer.animate(
+			{ transform: "translateX(calc(100vw - 24px))" },
+			{
+				...baseOptions,
+				duration: randomDurationX
+			}
+		);
 
-	itemContainer.firstElementChild.animate(
-		{ transform: "translateY(calc(100vh - 24px))" },
-		{
-			...baseOptions,
-			duration: randomDurationY
-		}
-	);
-});
+		itemContainer.firstElementChild.animate(
+			{ transform: "translateY(calc(100vh - 24px))" },
+			{
+				...baseOptions,
+				duration: randomDurationY
+			}
+		);
+	});
 </script>

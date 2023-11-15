@@ -1,9 +1,9 @@
 {
 	"devDependencies": {
 		"@astrojs/sitemap": "3.0.3",
-		"@typescript-eslint/eslint-plugin": "6.10.0",
-		"@typescript-eslint/parser": "6.10.0",
-		"astro": "3.4.3",
+		"@typescript-eslint/eslint-plugin": "6.11.0",
+		"@typescript-eslint/parser": "6.11.0",
+		"astro": "3.5.4",
 		"astro-compress": "2.2.3",
 		"eslint": "8.53.0",
 		"eslint-config-prettier": "9.0.0",
@@ -13,11 +13,11 @@
 		"postcss-drop-empty-css-vars": "0.0.0",
 		"postcss-lightningcss": "1.0.0",
 		"postcss-variable-compress": "3.0.0",
-		"prettier": "3.0.3",
-		"prettier-plugin-astro": "0.12.1",
+		"prettier": "3.1.0",
+		"prettier-plugin-astro": "0.12.2",
 		"sharp": "0.32.6",
 		"typescript": "5.2.2",
-		"unocss": "0.57.2"
+		"unocss": "0.57.4"
 	},
 	"scripts": {
 		"astro": "astro",

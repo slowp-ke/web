@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import gifSlowpoke from "@/assets/slowpoke.gif";
+
 interface Props {
 	number?: number;
 }
-const { number = 4 } = Astro.props;
-
+const { number = 10 } = Astro.props;
 const CLASS = "c_slowpoke";
 ---
 
@@ -14,7 +14,7 @@ const CLASS = "c_slowpoke";
 		Array.from({ length: number }, () => (
 			<div class="absolute">
 				<a
-					aria-label="slowpoke"
+					aria-label="spinning slowpoke"
 					class="absolute pointer-events-auto"
 					href="https://www.pokemoncenter.com/product/701-29532/slowpoke-poke-plush-59-in"
 					hreflang="en"
@@ -22,7 +22,12 @@ const CLASS = "c_slowpoke";
 					rel="noreferrer external"
 					target="_blank"
 				>
-					<Image alt="slowpoke" src={gifSlowpoke} width="24" height="23" />
+					<Image
+						alt="spinning slowpoke"
+						src={gifSlowpoke}
+						width="24"
+						height="23"
+					/>
 				</a>
 			</div>
 		))
@@ -30,8 +35,8 @@ const CLASS = "c_slowpoke";
 </div>
 
 <script define:vars={{ CLASS }} lang="ts">
-	const container = document.getElementsByClassName(CLASS)[0];
-	const items = [...container.children];
+	const [container] = document.getElementsByClassName(CLASS);
+	const [...items] = container.children;
 	const baseOptions = {
 		easing: "linear",
 		iterations: Infinity,

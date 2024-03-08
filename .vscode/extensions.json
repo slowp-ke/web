@@ -1,4 +1,4 @@
 {
-	"recommendations": ["antfu.unocss", "astro-build.astro-vscode"],
-	"unwantedRecommendations": []
+  "recommendations": ["antfu.unocss", "astro-build.astro-vscode"],
+  "unwantedRecommendations": []
 }

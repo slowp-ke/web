@@ -1,44 +1,49 @@
 {
-	"[astro]": {
-		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-	},
-	"[javascript]": {
-		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-	},
-	"[javascriptreact]": {
-		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-	},
-	"[jsonc]": {
-		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-	},
-	"[typescript]": {
-		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-	},
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-	},
-	"css.lint.unknownAtRules": "ignore",
-	"editor.codeActionsOnSave": {
-		"source.fixAll": "explicit",
-		"source.organizeImports": "explicit"
-	},
-	"editor.detectIndentation": false,
-	"editor.formatOnSave": true,
-	"editor.insertSpaces": false,
-	"eslint.validate": [
-		"javascript",
-		"javascriptreact",
-		"astro", // Enable .astro
-		"typescript", // Enable .ts
-		"typescriptreact" // Enable .tsx
-	],
-	"files.eol": "\n",
-	"prettier.documentSelectors": [
-		"**/*.astro"
-	],
-	"typescript.enablePromptUseWorkspaceTsdk": true,
-	"typescript.tsdk": "./node_modules/typescript/lib"
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.organizeImports": "never"
+  },
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro",
+    "html",
+    "typescript",
+    "typescriptreact"
+  ],
+  "files.eol": "\n",
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "prettier.documentSelectors": ["**/*.astro"],
+  "prettier.endOfLine": "lf",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsdk": "./node_modules/typescript/lib"
 }

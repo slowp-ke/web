@@ -1,9 +1,9 @@
 ---
-import gifSlowpoke from "@/assets/slowpoke.gif";
+import gifSlowpoke from "~/assets/slowpoke.gif";
 
 interface Props {
-	description?: string;
-	title: string;
+  description?: string;
+  title: string;
 }
 const { description = "", title } = Astro.props;
 
@@ -11,109 +11,109 @@ const APP_COLOR = "#ffc5b2";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>{title}</title>
-		<style is:global>
-			:root {
-				--APP_COLOR: #ffc5b2;
-				--color-app: var(--APP_COLOR);
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>{title}</title>
+    <style is:global>
+      :root {
+        --APP_COLOR: #ffc5b2;
+        --color-app: var(--APP_COLOR);
 
-				--text-brightness-offset: #000;
-				--bg-brightness-offset: #fff;
+        --text-brightness-offset: #000;
+        --bg-brightness-offset: #fff;
 
-				--bg: color-mix(
-					in srgb,
-					var(--color-app),
-					var(--bg-brightness-offset) 10%
-				);
-			}
+        --bg: color-mix(
+          in srgb,
+          var(--color-app),
+          var(--bg-brightness-offset) 10%
+        );
+      }
 
-			@media (prefers-color-scheme: dark) {
-				:root {
-					--text-brightness-offset: #fff;
-					--bg-brightness-offset: #000;
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --text-brightness-offset: #fff;
+          --bg-brightness-offset: #000;
 
-					--bg: color-mix(
-						in srgb,
-						var(--color-app),
-						var(--bg-brightness-offset) 80%
-					);
-				}
-			}
+          --bg: color-mix(
+            in srgb,
+            var(--color-app),
+            var(--bg-brightness-offset) 80%
+          );
+        }
+      }
 
-			html,
-			body {
-				background: var(--bg);
-				font-family:
-					system-ui,
-					-apple-system,
-					BlinkMacSystemFont,
-					"Segoe UI",
-					Roboto,
-					Oxygen,
-					Ubuntu,
-					Cantarell,
-					"Open Sans",
-					"Helvetica Neue",
-					sans-serif;
-				color: color-mix(
-					in srgb,
-					var(--color-app),
-					var(--text-brightness-offset) 50%
-				);
-				font-size: 14px;
-				height: 100%;
-				margin: 0;
-				overflow: hidden;
-			}
+      html,
+      body {
+        background: var(--bg);
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          "Open Sans",
+          "Helvetica Neue",
+          sans-serif;
+        color: color-mix(
+          in srgb,
+          var(--color-app),
+          var(--text-brightness-offset) 50%
+        );
+        font-size: 14px;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
 
-			a {
-				color: color-mix(
-					in srgb,
-					var(--color-app),
-					var(--text-brightness-offset) 33.3%
-				);
-				text-decoration: none;
-				font-weight: bolder;
-			}
-		</style>
+      a {
+        color: color-mix(
+          in srgb,
+          var(--color-app),
+          var(--text-brightness-offset) 33.3%
+        );
+        text-decoration: none;
+        font-weight: bolder;
+      }
+    </style>
 
-		<link
-			rel="preload"
-			href={gifSlowpoke.src}
-			as="image"
-			type="image/gif"
-			crossorigin="anonymous"
-		/>
+    <link
+      as="image"
+      crossorigin="anonymous"
+      href={gifSlowpoke.src}
+      rel="preload"
+      type="image/gif"
+    />
 
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link rel="icon" href="/favicon.ico" sizes="any" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="manifest" href="/manifest.webmanifest" />
-		<link rel="mask-icon" href="/mask.svg" color={APP_COLOR} />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta
-			name="apple-mobile-web-app-status-bar-style"
-			content="black-translucent"
-		/>
-		<meta name="apple-mobile-web-app-title" content="slowpoke" />
-		<meta name="application-name" content="slowpoke" />
-		{description !== "" && <meta name="description" content={description} />}
-		<meta name="generator" content={Astro.generator} />
-		<meta name="keywords" content="slowpoke, pokemon, pokémon" />
-		<meta name="msapplication-TileColor" content={APP_COLOR} />
-		<meta name="theme-color" content={APP_COLOR} />
-		<meta property="og:image" content="https://slowp.ke/apple-touch-icon.png" />
-		<meta property="og:locale" content="en_US" />
-		<meta property="og:title" content={title} />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://slowp.ke" />
-	</head>
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="/favicon.ico" rel="icon" sizes="any" />
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="/manifest.webmanifest" rel="manifest" />
+    <link color={APP_COLOR} href="/mask.svg" rel="mask-icon" />
+    <link href="/sitemap-index.xml" rel="sitemap" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta
+      content="black-translucent"
+      name="apple-mobile-web-app-status-bar-style"
+    />
+    <meta content="slowpoke" name="apple-mobile-web-app-title" />
+    <meta content="slowpoke" name="application-name" />
+    {description !== "" && <meta content={description} name="description" />}
+    <meta content={Astro.generator} name="generator" />
+    <meta content="slowpoke, pokemon, pokémon" name="keywords" />
+    <meta content={APP_COLOR} name="msapplication-TileColor" />
+    <meta content={APP_COLOR} name="theme-color" />
+    <meta content="https://slowp.ke/apple-touch-icon.png" property="og:image" />
+    <meta content="en_US" property="og:locale" />
+    <meta content={title} property="og:title" />
+    <meta content="website" property="og:type" />
+    <meta content="https://slowp.ke" property="og:url" />
+  </head>
 
-	<body>
-		<slot />
-	</body>
+  <body>
+    <slot />
+  </body>
 </html>

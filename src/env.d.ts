@@ -1,11 +1,11 @@
+/// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
 
 import "astro/astro-jsx";
 
 declare global {
-	namespace JSX {
-		type Element = HTMLElement;
-		// type Element = astroHTML.JSX.Element // We want to use this, but it is defined as any.
-		type IntrinsicElements = astroHTML.JSX.IntrinsicElements;
-	}
+  namespace JSX {
+    type Element = HTMLElement;
+    type IntrinsicElements = astroHTML.JSX.IntrinsicElements;
+  }
 }

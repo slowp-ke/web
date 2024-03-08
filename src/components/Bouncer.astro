@@ -1,67 +1,68 @@
 ---
 import { Image } from "astro:assets";
-import gifSlowpoke from "@/assets/slowpoke.gif";
+
+import gifSlowpoke from "~/assets/slowpoke.gif";
 
 interface Props {
-	number?: number;
+  number?: number;
 }
 const { number = 10 } = Astro.props;
 const CLASS = "c_slowpoke";
 ---
 
 <div class:list={[CLASS, "fixed h-full w-full pointer-events-none"]}>
-	{
-		Array.from({ length: number }, () => (
-			<div class="absolute">
-				<a
-					aria-label="spinning slowpoke"
-					class="absolute pointer-events-auto"
-					href="https://www.pokemoncenter.com/product/701-29532/slowpoke-poke-plush-59-in"
-					hreflang="en"
-					referrerpolicy="no-referrer"
-					rel="noreferrer external"
-					target="_blank"
-				>
-					<Image
-						alt="spinning slowpoke"
-						src={gifSlowpoke}
-						width="24"
-						height="23"
-						loading="eager"
-					/>
-				</a>
-			</div>
-		))
-	}
+  {
+    Array.from({ length: number }, () => (
+      <div class="absolute">
+        <a
+          aria-label="spinning slowpoke"
+          class="absolute pointer-events-auto"
+          href="https://www.pokemoncenter.com/product/701-29532/slowpoke-poke-plush-59-in"
+          hreflang="en"
+          referrerpolicy="no-referrer"
+          rel="noreferrer external"
+          target="_blank"
+        >
+          <Image
+            alt="spinning slowpoke"
+            height="23"
+            loading="eager"
+            src={gifSlowpoke}
+            width="24"
+          />
+        </a>
+      </div>
+    ))
+  }
 </div>
 
 <script define:vars={{ CLASS }} lang="ts">
-	const [container] = document.getElementsByClassName(CLASS);
-	const [...items] = container.children;
-	const baseOptions = {
-		easing: "linear",
-		iterations: Infinity,
-		direction: "alternate"
-	};
-	let x = 0;
+  const [container] = document.getElementsByClassName(CLASS);
+  const [...items] = container.children;
+  const baseOptions = {
+    easing: "linear",
+    iterations: Infinity,
+    direction: "alternate"
+  };
+  let x = 0;
 
-	items.forEach((itemContainer) => {
-		const randomDurationX = Math.random() * 7000;
-		const randomDurationY = Math.random() * 7000;
-		itemContainer.animate(
-			{ transform: "translateX(calc(100vw - 24px))" },
-			{
-				...baseOptions,
-				duration: randomDurationX
-			}
-		);
+  items.forEach((itemContainer) => {
+    const randomDurationX = Math.random() * 7000;
+    const randomDurationY = Math.random() * 7000;
+    itemContainer.animate(
+      { transform: "translateX(calc(100vw - 24px))" },
+      {
+        ...baseOptions,
+        duration: randomDurationX
+      }
+    );
 
-		itemContainer.firstElementChild.animate(
-			{ transform: "translateY(calc(100vh - 24px))" },
-			{
-				...baseOptions,
-				duration: randomDurationY
-			}
-		);
-	});
+    itemContainer.firstElementChild.animate(
+      { transform: "translateY(calc(100vh - 24px))" },
+      {
+        ...baseOptions,
+        duration: randomDurationY
+      }
+    );
+  });
 </script>

@@ -1,34 +1,35 @@
 {
-	"env": {
-		"browser": true,
-		"node": true
-	},
-	"extends": [
-		"eslint:recommended",
-		"plugin:astro/recommended",
-		"plugin:@typescript-eslint/recommended-type-checked",
-		"plugin:astro/jsx-a11y-recommended",
-		"plugin:prettier/recommended",
-		"prettier"
-	],
-	"ignorePatterns": ["node_modules/", "dist/"],
-	"overrides": [
-		{
-			"files": ["*.astro"],
-			"parser": "astro-eslint-parser",
-			"parserOptions": {
-				"extraFileExtensions": [".astro"],
-				"parser": "@typescript-eslint/parser"
-			}
-		}
-	],
-	"parserOptions": {
-		"ecmaVersion": 2020,
-		"extraFileExtensions": [".astro"],
-		"parser": "@typescript-eslint/parser",
-		"project": "./tsconfig.eslint.json",
-		"sourceType": "module"
-	},
-	"plugins": ["@typescript-eslint", "jsx-a11y", "prettier"],
-	"root": true
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:unicorn/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:astro/recommended",
+    "plugin:astro/jsx-a11y-recommended",
+    "plugin:perfectionist/recommended-natural",
+    "plugin:prettier/recommended"
+  ],
+  "ignorePatterns": [".vscode/", ".wrangler/", "dist/"],
+  "overrides": [
+    {
+      "files": ["*.astro"],
+      "parser": "astro-eslint-parser",
+      "parserOptions": {
+        "extraFileExtensions": [".astro"],
+        "parser": "@typescript-eslint/parser"
+      }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "extraFileExtensions": [".astro"],
+    "sourceType": "module"
+  },
+  "root": true,
+  "rules": {
+    "unicorn/better-regex": "warn",
+    "unicorn/filename-case": "off",
+    "unicorn/prevent-abbreviations": "off"
+  }
 }

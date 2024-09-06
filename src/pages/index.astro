@@ -1,8 +1,13 @@
 ---
-import Bouncer from "~/components/bouncer.astro";
-import Layout from "~/layouts/default.astro";
+import Bouncer from "~/components/Bouncer.astro";
+import Slowpoke from "~/components/Slowpoke.astro";
+import Layout from "~/layouts/Default.astro";
 ---
 
 <Layout>
+	<Slowpoke
+		class="absolute top-1/2 left-1/2 -translate-y-full -translate-x-1/2 z-10"
+		scale={3}
+	/>
 	<Bouncer />
 </Layout>

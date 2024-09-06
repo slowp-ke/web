@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Slowpoke from "~/components/Slowpoke.astro";
 
 interface Props {
 	number?: number;
@@ -7,29 +7,10 @@ interface Props {
 const { number = 10 } = Astro.props;
 ---
 
-{
-	Array.from({ length: number }, () => (
-		<a
-			class="slowpoke absolute inline-block"
-			href="https://www.serebii.net/pokemon/slowpoke/"
-			hreflang="en"
-			referrerpolicy="no-referrer"
-			rel="external nofollow"
-			target="_blank"
-		>
-			<Image
-				alt="spinning slowpoke"
-				height="23"
-				loading="eager"
-				src="/slowpoke.gif"
-				width="24"
-			/>
-		</a>
-	))
-}
+{Array.from({ length: number }, () => <Slowpoke class="bounce absolute" />)}
 
 <script>
-	const slowpokes = document.getElementsByClassName("slowpoke");
+	const slowpokes = document.getElementsByClassName("bounce");
 	const baseOptions = {
 		direction: "alternate",
 		easing: "linear",
@@ -48,6 +29,7 @@ const { number = 10 } = Astro.props;
 				duration: randomDurationX,
 				iterationStart: randomStartX
 			} as KeyframeAnimationOptions);
+
 			slowpoke.firstElementChild!.animate(
 				{ transform: "translateY(calc(100vh - 23px))" },
 				{

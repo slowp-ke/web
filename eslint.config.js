@@ -13,6 +13,15 @@ export default tseslint.config(
 	unicorn.configs["flat/recommended"],
 	{
 		rules: {
+			"unicorn/filename-case": [
+				"error",
+				{
+					cases: {
+						kebabCase: true,
+						pascalCase: true
+					}
+				}
+			],
 			// getElementsByClassName is faster than querySelectorAll
 			"unicorn/prefer-query-selector": "off",
 			// Astro likes "Props" for component properties

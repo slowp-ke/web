@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import Image from "astro/components/Image.astro";
+
+interface Props extends HTMLAttributes<"a"> {
+	scale?: number;
+}
+
+const { class: extraClasses, scale = 1, ...restAnchor } = Astro.props;
+export const className = "slowpoke";
+---
+
+<figure class:list={[className, extraClasses]}>
+	<a
+		{...restAnchor}
+		class="block"
+		href="https://www.serebii.net/pokemon/slowpoke/"
+		hreflang="en"
+		referrerpolicy="no-referrer"
+		rel="external nofollow"
+		target="_blank"
+	>
+		<Image
+			alt="spinning slowpoke"
+			height={23 * scale}
+			loading="eager"
+			src="/slowpoke.gif"
+			width={24 * scale}
+		/>
+	</a>
+</figure>

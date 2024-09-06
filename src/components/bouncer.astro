@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+	number?: number;
+}
+const { number = 10 } = Astro.props;
+---
+
+{
+	Array.from({ length: number }, () => (
+		<a
+			class="slowpoke absolute inline-block"
+			href="https://www.serebii.net/pokemon/slowpoke/"
+			hreflang="en"
+			referrerpolicy="no-referrer"
+			rel="external nofollow"
+			target="_blank"
+		>
+			<Image
+				alt="spinning slowpoke"
+				height="23"
+				loading="eager"
+				src="/slowpoke.gif"
+				width="24"
+			/>
+		</a>
+	))
+}
+
+<script>
+	const slowpokes = document.getElementsByClassName("slowpoke");
+	const baseOptions = {
+		direction: "alternate",
+		easing: "linear",
+		iterations: Infinity
+	} satisfies KeyframeAnimationOptions;
+
+	for (const slowpoke of slowpokes) {
+		const randomDurationX = Math.random() * 10_000 + 0.1;
+		const randomDurationY = Math.random() * 10_000 + 0.1;
+		const randomStartX = Math.random() * 100;
+		const randomStartY = Math.random() * 100;
+
+		requestAnimationFrame(() => {
+			slowpoke.animate({ transform: "translateX(calc(100vw - 24px))" }, {
+				...baseOptions,
+				duration: randomDurationX,
+				iterationStart: randomStartX
+			} as KeyframeAnimationOptions);
+			slowpoke.firstElementChild!.animate(
+				{ transform: "translateY(calc(100vh - 23px))" },
+				{
+					...baseOptions,
+					duration: randomDurationY,
+					iterationStart: randomStartY
+				} as KeyframeAnimationOptions
+			);
+		});
+	}
+</script>

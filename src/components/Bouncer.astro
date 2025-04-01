@@ -24,11 +24,14 @@ const { number = 10 } = Astro.props;
 		const randomStartY = Math.random() * 100;
 
 		requestAnimationFrame(() => {
-			slowpoke.animate({ transform: "translateX(calc(100vw - 24px))" }, {
-				...baseOptions,
-				duration: randomDurationX,
-				iterationStart: randomStartX
-			} as KeyframeAnimationOptions);
+			slowpoke.animate(
+				{ transform: "translateX(calc(100vw - 24px))" },
+				{
+					...baseOptions,
+					duration: randomDurationX,
+					iterationStart: randomStartX
+				}
+			);
 
 			slowpoke.firstElementChild!.animate(
 				{ transform: "translateY(calc(100vh - 23px))" },
@@ -36,7 +39,7 @@ const { number = 10 } = Astro.props;
 					...baseOptions,
 					duration: randomDurationY,
 					iterationStart: randomStartY
-				} as KeyframeAnimationOptions
+				}
 			);
 		});
 	}

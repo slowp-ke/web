@@ -1,5 +1,8 @@
 {
-	"[astro][html][javascript][javascriptreact][json][jsonc][typescript][typescriptreact]": {
+	"[astro]": {
+		"editor.defaultFormatter": "astro-build.astro-vscode"
+	},
+	"[html][javascript][javascriptreact][json][jsonc][typescript][typescriptreact]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"editor.codeActionsOnSave": {

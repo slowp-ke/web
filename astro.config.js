@@ -1,4 +1,4 @@
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
 // https://astro.build/config
@@ -7,12 +7,14 @@ export default defineConfig({
 		inlineStylesheets: "always"
 	},
 
-	integrations: [tailwind()],
-
 	output: "static",
 
 	security: {
 		checkOrigin: true
 	},
-	site: "https://slowp.ke"
+
+	site: "https://slowp.ke",
+	vite: {
+		plugins: [tailwindcss()]
+	}
 });

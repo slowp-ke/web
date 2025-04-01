@@ -7,10 +7,11 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
 	eslint.configs.recommended,
-	...tseslint.configs.stylistic,
+	tseslint.configs.stylistic,
 	prettier,
 	...astro.configs.recommended,
-	unicorn.configs["flat/recommended"],
+	perfectionist.configs["recommended-natural"],
+	unicorn.configs.recommended,
 	{
 		rules: {
 			"unicorn/filename-case": [
@@ -27,7 +28,5 @@ export default tseslint.config(
 			// Astro likes "Props" for component properties
 			"unicorn/prevent-abbreviations": "off"
 		}
-	},
-
-	perfectionist.configs["recommended-natural"]
+	}
 );

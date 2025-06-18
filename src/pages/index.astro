@@ -5,9 +5,18 @@ import Layout from "~/layouts/Default.astro";
 ---
 
 <Layout>
-	<Slowpoke
-		class="absolute top-1/2 left-1/2 -translate-y-full -translate-x-1/2 z-10"
-		scale={3}
-	/>
+	<Slowpoke class="m" />
 	<Bouncer />
 </Layout>
+
+<style is:global>
+	/* is:global prevents `data-astro` attributes from being added to the build output.
+	site is very simple so I'm not worried about scoped styles here. */
+
+	.m {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+</style>

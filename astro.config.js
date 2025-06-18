@@ -1,4 +1,4 @@
-import tailwindcss from "@tailwindcss/vite";
+import compress from "@playform/compress";
 import { defineConfig } from "astro/config";
 
 // https://astro.build/config
@@ -7,14 +7,13 @@ export default defineConfig({
 		inlineStylesheets: "always"
 	},
 
+	integrations: [compress()],
+
 	output: "static",
 
 	security: {
 		checkOrigin: true
 	},
 
-	site: "https://slowp.ke",
-	vite: {
-		plugins: [tailwindcss()]
-	}
+	site: "https://slowp.ke"
 });

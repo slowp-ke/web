@@ -1,15 +1,32 @@
 ---
 import "./Default.css";
+import { Head } from "astro-capo";
 ---
 
-<html class="dark:bg-black" lang="en">
-	<head>
+<html lang="en">
+	<Head>
 		<meta charset="utf-8" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<meta content="Slowpoke" name="description" />
+		<meta content="#ffffff" name="theme-color" />
+		<meta
+			content="#000000"
+			media="(prefers-color-scheme: dark)"
+			name="theme-color"
+		/>
+
+		<meta content="light dark" name="color-scheme" />
+
+		<!-- Open Graph -->
+		<meta content="Slowpoke" property="og:title" />
+		<meta content="Slowpoke" property="og:description" />
+		<meta content="website" property="og:type" />
+		<meta content="https://slowp.ke" property="og:url" />
+		<meta content="https://slowp.ke/slowpoke.gif" property="og:image" />
+
 		<title>Slowpoke</title>
 		<link href="/favicon.svg" rel="icon" type="image/svg+xml" />
-	</head>
-	<body class="dark:bg-black">
-		<slot />
-	</body>
+		<link href="https://slowp.ke" rel="canonical" />
+	</Head>
+	<body><slot /></body>
 </html>

@@ -1,16 +1,20 @@
 :root {
-	--bg-color: oklch(0.9199 0.0318 38.91);
+	--bg: oklch(0.9199 0.0318 38.91);
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--bg-color: #000;
+		--bg: #000;
 	}
 }
 
 body {
 	margin: 0;
-	background: var(--bg-color);
+}
+
+html,
+body {
+	background-color: var(--bg);
 }
 
 a {

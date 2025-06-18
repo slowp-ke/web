@@ -23,11 +23,11 @@ const { number = 79 } = Astro.props;
 
 		requestAnimationFrame(() => {
 			s.animate(
-				{ transform: "translateX(calc(100vw - 24px))" },
+				{ transform: "translateX(calc(100vw - 48px))" },
 				{ ...base, duration: x, iterationStart: Math.random() * 100 }
 			);
 			s.firstElementChild!.animate(
-				{ transform: "translateY(calc(100vh - 24px))" },
+				{ transform: "translateY(calc(100vh - 48px))" },
 				{ ...base, duration: y, iterationStart: Math.random() * 100 }
 			);
 		});
@@ -37,5 +37,7 @@ const { number = 79 } = Astro.props;
 <style is:global>
 	.b {
 		position: absolute;
+		pointer-events: none;
+		opacity: 0.1;
 	}
 </style>

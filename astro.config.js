@@ -7,7 +7,19 @@ export default defineConfig({
 		inlineStylesheets: "always"
 	},
 
-	integrations: [compress()],
+	integrations: [
+		compress({
+			HTML: {
+				"html-minifier-terser": {
+					collapseInlineTagWhitespace: true,
+					collapseWhitespace: true,
+					minifyCSS: true,
+					minifyJS: true,
+					removeComments: true
+				}
+			}
+		})
+	],
 
 	output: "static",
 

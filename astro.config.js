@@ -7,14 +7,21 @@ export default defineConfig({
 		inlineStylesheets: "always"
 	},
 
+	experimental: {
+		csp: {
+			directives: ["default-src 'none'", "img-src data: 'self'"]
+		}
+	},
+
 	integrations: [
 		compress({
 			HTML: {
 				"html-minifier-terser": {
-					collapseInlineTagWhitespace: true,
-					collapseWhitespace: true,
-					minifyCSS: true,
-					minifyJS: true,
+					// The following attributes must be set to `false` or Astro's injected CSP will break.
+					collapseWhitespace: false,
+					minifyCSS: false,
+					minifyJS: false,
+					minifyURLs: true,
 					removeComments: true
 				}
 			}

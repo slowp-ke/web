@@ -12,6 +12,7 @@
 	"editor.detectIndentation": false,
 	"editor.formatOnSave": true,
 	"editor.insertSpaces": false,
+	"eslint.enable": true,
 	"eslint.useFlatConfig": true,
 	"eslint.validate": [
 		"astro",
@@ -26,7 +27,11 @@
 	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
 	"npm.packageManager": "pnpm",
-	"prettier.documentSelectors": ["**/*.astro"],
+	"oxc.enable": false,
+	"prettier.documentSelectors": [
+		"**/*.astro"
+	],
+	"prettier.enable": true,
 	"typescript.enablePromptUseWorkspaceTsdk": true,
 	"typescript.tsdk": "./node_modules/typescript/lib"
 }

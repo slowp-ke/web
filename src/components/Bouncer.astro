@@ -21,23 +21,21 @@ const { number = 78 } = Astro.props;
 	const horizontal = { transform: "translateX(calc(100dvw - 48px))" };
 	const vertical = { transform: "translateY(calc(100dvh - 48px))" };
 
-	requestAnimationFrame(() => {
-		for (const s of slowpokes) {
-			const x = Math.random() * 1e4 + 0.1;
-			const y = Math.random() * 1e4 + 0.1;
+	for (const s of slowpokes) {
+		const x = Math.random() * 1e4 + 0.1;
+		const y = Math.random() * 1e4 + 0.1;
 
-			s.animate(horizontal, {
-				...base,
-				duration: x,
-				iterationStart: Math.random() * 100
-			});
-			s.firstElementChild!.animate(vertical, {
-				...base,
-				duration: y,
-				iterationStart: Math.random() * 100
-			});
-		}
-	});
+		s.animate(horizontal, {
+			...base,
+			duration: x,
+			iterationStart: Math.random() * 100
+		});
+		s.firstElementChild!.animate(vertical, {
+			...base,
+			duration: y,
+			iterationStart: Math.random() * 100
+		});
+	}
 </script>
 
 <style is:global>

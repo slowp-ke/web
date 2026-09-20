@@ -28,9 +28,7 @@
 	"files.trimTrailingWhitespace": true,
 	"npm.packageManager": "pnpm",
 	"oxc.enable": false,
-	"prettier.documentSelectors": [
-		"**/*.astro"
-	],
+	"prettier.documentSelectors": ["**/*.astro"],
 	"prettier.enable": true,
 	"typescript.enablePromptUseWorkspaceTsdk": true,
 	"typescript.tsdk": "./node_modules/typescript/lib"

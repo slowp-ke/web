@@ -1,5 +1,4 @@
 ---
-import "./Default.css";
 ---
 
 <html lang="en">
@@ -20,5 +19,29 @@ import "./Default.css";
 		<link href="/favicon.svg" rel="icon" type="image/svg+xml" />
 		<link href="https://slowp.ke" rel="canonical" />
 	</head>
-	<body><slot /></body>
+	<body>
+		<slot />
+	</body>
 </html>
+
+<style is:global>
+	:root {
+		--bg: oklch(0.9199 0.0318 38.91);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--bg: oklch(0 0 0);
+		}
+	}
+
+	body {
+		margin: 0;
+	}
+
+	html,
+	body {
+		background-color: var(--bg);
+		height: 100dvh;
+	}
+</style>

@@ -4,10 +4,12 @@ import Slowpoke from "~/components/Slowpoke.astro";
 interface Props {
 	number?: number;
 }
-const { number = 79 } = Astro.props;
+const { number = 78 } = Astro.props;
 ---
 
-{Array.from({ length: number }, () => <Slowpoke class="b" />)}
+{Array.from({ length: number }, () => (
+	<Slowpoke class="b" isBouncing />
+))}
 
 <script>
 	const slowpokes = document.getElementsByClassName("b");
@@ -16,28 +18,31 @@ const { number = 79 } = Astro.props;
 		easing: "linear",
 		iterations: Infinity
 	};
+	const horizontal = { transform: "translateX(calc(100dvw - 48px))" };
+	const vertical = { transform: "translateY(calc(100dvh - 48px))" };
 
-	for (const s of slowpokes) {
-		const x = Math.random() * 1e4 + 0.1;
-		const y = Math.random() * 1e4 + 0.1;
+	requestAnimationFrame(() => {
+		for (const s of slowpokes) {
+			const x = Math.random() * 1e4 + 0.1;
+			const y = Math.random() * 1e4 + 0.1;
 
-		requestAnimationFrame(() => {
-			s.animate(
-				{ transform: "translateX(calc(100vw - 48px))" },
-				{ ...base, duration: x, iterationStart: Math.random() * 100 }
-			);
-			s.firstElementChild!.animate(
-				{ transform: "translateY(calc(100vh - 48px))" },
-				{ ...base, duration: y, iterationStart: Math.random() * 100 }
-			);
-		});
-	}
+			s.animate(horizontal, {
+				...base,
+				duration: x,
+				iterationStart: Math.random() * 100
+			});
+			s.firstElementChild!.animate(vertical, {
+				...base,
+				duration: y,
+				iterationStart: Math.random() * 100
+			});
+		}
+	});
 </script>
 
 <style is:global>
 	.b {
 		position: absolute;
-		pointer-events: none;
-		opacity: 0.1;
+		opacity: 0.05;
 	}
 </style>

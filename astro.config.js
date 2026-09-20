@@ -6,16 +6,11 @@ export default defineConfig({
 		inlineStylesheets: "always"
 	},
 
-	experimental: {
-		csp: {
-			directives: ["default-src 'none'", "img-src data: 'self'"]
-		}
-	},
-
 	output: "static",
 
 	security: {
-		checkOrigin: true
+		checkOrigin: true,
+		csp: true
 	},
 
 	site: "https://slowp.ke"

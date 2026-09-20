@@ -3,9 +3,10 @@ import astro from "eslint-plugin-astro";
 import perfectionist from "eslint-plugin-perfectionist";
 import prettier from "eslint-plugin-prettier/recommended";
 import unicorn from "eslint-plugin-unicorn";
+import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 
-export default tseslint.config(
+export default defineConfig(
 	eslint.configs.recommended,
 	tseslint.configs.stylistic,
 	prettier,
@@ -23,10 +24,10 @@ export default tseslint.config(
 					}
 				}
 			],
-			// getElementsByClassName is faster than querySelectorAll
-			"unicorn/prefer-query-selector": "off",
 			// Astro likes "Props" for component properties
-			"unicorn/prevent-abbreviations": "off"
+			"unicorn/name-replacements": "off",
+			// getElementsByClassName is faster than querySelectorAll
+			"unicorn/prefer-query-selector": "off"
 		}
 	}
 );

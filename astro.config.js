@@ -8,10 +8,5 @@ export default defineConfig({
 
 	output: "static",
 
-	security: {
-		checkOrigin: true,
-		csp: true
-	},
-
 	site: "https://slowp.ke"
 });

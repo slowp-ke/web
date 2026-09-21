@@ -8,5 +8,14 @@ export default defineConfig({
 
 	output: "static",
 
+	security: {
+		csp: {
+			algorithm: "SHA-256",
+			directives: ["default-src 'self'", "img-src 'self' data:"],
+			scriptDirective: { resources: ["'self'"] },
+			styleDirective: { resources: ["'self'"] }
+		}
+	},
+
 	site: "https://slowp.ke"
 });
